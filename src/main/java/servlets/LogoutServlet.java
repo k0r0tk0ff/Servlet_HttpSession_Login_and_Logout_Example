@@ -1,8 +1,7 @@
 package servlets;
 
-/**
- * Original - http://www.javatpoint.com/servlet-http-session-login-and-logout-example
- */
+
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+/**
+ * Original - http://www.javatpoint.com/servlet-http-session-login-and-logout-example
+ */
+
 public class LogoutServlet extends HttpServlet {
+
+    /**
+     * @param request  - standard http request
+     * @param response - standard http response
+     * @throws ServletException - standard ServletException
+     * @throws IOException - standard IOException
+     */
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
