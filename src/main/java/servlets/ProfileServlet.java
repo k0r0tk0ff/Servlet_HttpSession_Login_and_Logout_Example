@@ -28,12 +28,15 @@ public class ProfileServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         request.getRequestDispatcher("link.html").include(request, response);
 
-        HttpSession session = request.getSession(false);
-        if (session != null) {
-            String name = (String) session.getAttribute("name");
-            //out.print("Hello, " + name + " Welcome to Profile");
+
+        HttpSession session = request.getSession();
+        String name = (String) session.getAttribute("name");
+
+        out.print(String.format("<center><h2> SessionID = %s </center></h2>", session.getId()));
+        out.print(String.format("<center><h2> Entered name = %s </center></h2>", name));
+
+        if (session != null && name != null) {
             out.print(String.format("<center><h2> Hello, %s Welcome to Profile</center></h2>", name));
-            out.print(String.format("<center><h2> SessionID = %s </center></h2>", session.getId()));
         } else {
             out.print("<center><h2> Please login first ! </h2></center>");
             request.getRequestDispatcher("login.jsp").include(request, response);
