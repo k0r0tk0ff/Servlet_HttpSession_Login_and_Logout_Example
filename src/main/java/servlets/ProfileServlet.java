@@ -31,9 +31,11 @@ public class ProfileServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         if (session != null) {
             String name = (String) session.getAttribute("name");
-            out.print("Hello, " + name + " Welcome to Profile");
+            //out.print("Hello, " + name + " Welcome to Profile");
+            out.print(String.format("<center><h2> Hello, %s Welcome to Profile</center></h2>", name));
+            out.print(String.format("<center><h2> SessionID = %s </center></h2>", session.getId()));
         } else {
-            out.print("Please login first");
+            out.print("<center><h2> Please login first ! </h2></center>");
             request.getRequestDispatcher("login.jsp").include(request, response);
         }
         out.close();
